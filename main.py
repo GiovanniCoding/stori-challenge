@@ -163,6 +163,5 @@ if __name__ == '__main__':
 
     path_file = 'data/txns.csv'
     total_balance, average_debit, average_credit, transactions_per_month = process_transactions(path_file)
-    transaction_rows_html = ''.join(['<tr><td>{0}</td><td>{1}</td></tr>'.format(transaction[0], transaction[1]) for transaction in transactions_per_month])
     send_result(total_balance, average_debit, average_credit, transactions_per_month)
     
