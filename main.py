@@ -24,11 +24,6 @@ def process_transactions(path_file):
     average_debit = df['Transaction'][df['Transaction'].apply(lambda x: x >= 0)].mean()
     average_credit = df['Transaction'][df['Transaction'].apply(lambda x: x < 0)].mean()
 
-    print(df)
-    print(total_balance)
-    print(average_debit)
-    print(average_credit)
-
     count = df.groupby(['Date']).size().reset_index(name='count')
     count.sort_values('Date')
     transactions_per_month = []
@@ -42,7 +37,7 @@ def process_transactions(path_file):
 def send_result(total_balance, average_debit, average_credit, transactions_per_month):
     sender_email = "egiovanni.vo@gmail.com"
     password = 'xzmoljbjgmxjvrgx'
-    receiver_email = "edgarg.vo@gmail.com"
+    receiver_email = "fernando.yanez@storicard.com"
 
     # Convert transactions per month to HTML row
     transaction_rows_html = ''.join(['<tr style="border: 1px solid;"><td style="border: 1px solid;">{0}</td><td style="border: 1px solid;">{1}</td></tr>'.format(transaction[0], transaction[1]) for transaction in transactions_per_month])
